@@ -4,11 +4,10 @@ import * as bodyParser from 'body-parser';
 import * as compress from 'compression';
 import * as methodOverride from 'method-override';
 import * as cors from 'cors';
-
-const rootDir = __dirname;
+import * as path from 'path';
 
 @ServerSettings({
-    rootDir,
+    rootDir: path.resolve(__dirname),
     acceptMimes: ["application/json"]
 })
 export class Server extends ServerLoader {
@@ -25,5 +24,15 @@ export class Server extends ServerLoader {
             .use(bodyParser.json())
             .use(bodyParser.urlencoded({ extended: true }))
             .use(cors());
+
+        return null;
+    }
+
+    public $onReady() {
+        console.log('Server started...');
+    }
+
+    public $onServerInitError(error: Error) {
+        console.error(error);
     }
 }
