@@ -1,7 +1,7 @@
 {
   "name": "node-tsed",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:tomilenko/node-tsed.git",
   "author": "Vadym Tomilenko <tomilenko.vadim@gmail.com>",
   "license": "MIT",
